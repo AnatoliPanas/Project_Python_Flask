@@ -1,7 +1,5 @@
-from pydantic import BaseModel, Field, EmailStr, field_validator, ValidationError, model_validator
+from pydantic import BaseModel, Field, EmailStr, field_validator, ValidationError, model_validator, ValidationInfo
 import re, json
-
-from pydantic_core.core_schema import ValidationInfo
 
 
 # Модель Address
@@ -40,7 +38,7 @@ class User(BaseModel):
     #     age = self.age
     #     if is_employed and (age < 18 or age >= 65):
     #         raise ValueError("Возраст рабочего должен быть в диапазоне от 18 до 65 лет.")
-    #     return values
+    #     return self
 
     @field_validator('is_employed')
     @classmethod
