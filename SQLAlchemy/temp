@@ -1,0 +1,3 @@
+Создать модель по существующей БД:
+    pip install sqlacodegen_v2
+    sqlacodegen_v2 mysql+pymysql://<user>:<password>@<host>:<port>/<db_name> --outfile sqlalchemy_train/sql_queries/test_models.py
