@@ -24,7 +24,7 @@ class Product(Base):
     in_stock: Mapped[bool] = mapped_column(Boolean)
     category_id: Mapped[int] = mapped_column(Integer, ForeignKey('categorys.id'))
 
-    category: Mapped['Category'] = relationship("User", back_populates="product")
+    category: Mapped['Category'] = relationship("Category", back_populates="product")
 
 Base.metadata.create_all(bind=sql_engine)
 
