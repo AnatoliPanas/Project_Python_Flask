@@ -13,8 +13,6 @@ from sqlalchemy.exc import IntegrityError, DataError
 
 from datetime import datetime
 
-from ha_3 import Category
-
 
 def get_model_fields(records, columns):
     response_data = []
@@ -49,8 +47,8 @@ def insert_in_table(session: Session, datas):
 
 
 Base = declarative_base()
-URL = "sqlite:///ha_4.db"
-# URL='sqlite:///:memory:'
+# URL = "sqlite:///ha_4.db"
+URL='sqlite:///:memory:'
 engine = create_engine(url=URL, echo=True,
                        echo_pool=True)
 
@@ -92,19 +90,19 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-# сategorys = [Category(name="Электроника", description="Гаджеты и устройства."),
-#              Category(name="Книги", description="Печатные книги и электронные книги."),
-#              Category(name="Одежда", description="Одежда для мужчин и женщин.")
-#              ]
-# insert_in_table(session, сategorys)
-#
-# сategorys = [Product(name="Смартфон", price=299.99, in_stock=True, category_id=1),
-#              Product(name="Ноутбук", price=499.99, in_stock=True, category_id=1),
-#              Product(name="Научно-фантастический роман", price=15.99, in_stock=True, category_id=2),
-#              Product(name="Джинсы", price=40.50, in_stock=True, category_id=3),
-#              Product(name="Футболка", price=20.00, in_stock=True, category_id=3)
-#              ]
-# insert_in_table(session, сategorys)
+сategorys = [Category(name="Электроника", description="Гаджеты и устройства."),
+             Category(name="Книги", description="Печатные книги и электронные книги."),
+             Category(name="Одежда", description="Одежда для мужчин и женщин.")
+             ]
+insert_in_table(session, сategorys)
+
+сategorys = [Product(name="Смартфон", price=299.99, in_stock=True, category_id=1),
+             Product(name="Ноутбук", price=499.99, in_stock=True, category_id=1),
+             Product(name="Научно-фантастический роман", price=15.99, in_stock=True, category_id=2),
+             Product(name="Джинсы", price=40.50, in_stock=True, category_id=3),
+             Product(name="Футболка", price=20.00, in_stock=True, category_id=3)
+             ]
+insert_in_table(session, сategorys)
 
 # -> Извлеките все записи из таблицы categories.
 # Для каждой категории извлеките и выведите все связанные с
