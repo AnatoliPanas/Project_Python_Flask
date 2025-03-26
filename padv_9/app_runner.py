@@ -3,6 +3,7 @@ from flask_migrate import Migrate
 
 from padv_9.config import DevelopmentConfig
 from padv_9.routers.questions import questions_bp
+from padv_9.routers.answers import answers_bp
 from padv_9.models import db
 
 
@@ -13,5 +14,6 @@ def create_app() -> Flask:
     migrate = Migrate()
     migrate.init_app(app=app, db=db)
     app.register_blueprint(questions_bp, url_prefix="/questions")
+    app.register_blueprint(answers_bp, url_prefix="/answers")
 
     return app

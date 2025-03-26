@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Mapped, mapped_column
 from padv_9.models import db
+# from padv_9.models.questions import Question
 
 
 class Answer(db.Model):

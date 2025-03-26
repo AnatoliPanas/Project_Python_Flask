@@ -2,6 +2,7 @@ pip install flask-sqlalchemy
 pip install flask-migrate
 flask --app padv_9/app_runner db --help
 flask db init
+flask db migrate -m "erste"
 
 GET (получить объект \ список объектов)
 POST (создать объект)

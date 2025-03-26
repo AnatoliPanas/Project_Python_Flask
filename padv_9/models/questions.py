@@ -1,6 +1,8 @@
 from sqlalchemy.orm import Mapped, mapped_column
 
 from padv_9.models import db
+# from padv_9.models.answers import Answer
+# from padv_9.models.category import Category
 
 
 class Question(db.Model):
@@ -15,8 +17,10 @@ class Question(db.Model):
     text: Mapped[str] = mapped_column(
         db.String(255),
     )
+    category_id: Mapped[int] = mapped_column(db.Integer, db.ForeignKey('categories.id'))
 
     answers: Mapped[list['Answer']] = db.relationship('Answer', back_populates='question')
+    category: Mapped['Category'] = db.relationship('Category', back_populates='question')
 
     def __repr__(self):
         return f'Question: {self.text}'
