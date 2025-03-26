@@ -1,0 +1,11 @@
+pip install flask-sqlalchemy
+pip install flask-migrate
+flask --app padv_9/app_runner db --help
+flask db init
+
+GET (получить объект \ список объектов)
+POST (создать объект)
+PUT \ PATCH (обновить конкретный объект или целиком, или кнкретное поле(поля))
+DELETE (удалить конкретный объект)
+HEAD (почти как и метод GET, но не возвращает тело ответа, возвращает HTTP заголовки)
+OPTIONS
